@@ -8,8 +8,13 @@ class Question:
         print(self.prompt)
         for idx, option in enumerate(self.options):
             print(f"{idx + 1}. {option}")
-        user_answer = int(input("Введите номер вашего ответа: "))
-        return user_answer == self.correct_answer
+        
+        try:
+            user_answer = int(input("Введите номер вашего ответа: "))
+            return user_answer == self.correct_answer
+        except ValueError:
+            print("Некорректный ввод. Введите номер варианта ответа целым числом.")
+            return False
 
 
 class Quiz:
